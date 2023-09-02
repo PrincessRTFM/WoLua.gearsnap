@@ -8,3 +8,6 @@ This is a [WoLua](https://github.com/PrincessRTFM/WoLua) command script for FFXI
 
 ## Usage
 Just like the vanilla `/gearset change <gearset> [<glamour>]` command, you need to pass a gearset number and _optionally_ follow it with a glamour plate number. The script will automatically handle checking whether you've unlocked the `/snap` emote, and will skip trying to use it if you haven't. If you're currently moving, the animation won't play, so the emote will also be skipped in this case. Finally, you can hold SHIFT (either side) as an override to forcibly skip the snap emote, in case you want to change gearsets quickly. In all other cases, the script will execute `/snap motion` with a short delay (about a second and a half) to give the animation time to run, then change to the specified gearset (and glamour, if provided).
+
+## Customisation
+You can create a file `after.lua` with whatever content you want it to have. If this file is present (and loads successfully), its contents will be executed ~100ms after the gearset change command is run. This can be used to, for example, automatically run certain commands when you change to a specific job or role.

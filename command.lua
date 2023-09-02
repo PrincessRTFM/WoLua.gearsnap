@@ -1,4 +1,5 @@
 --Script.Debug.Enabled = true
+local postChange = loadfile 'after.lua'
 
 local function dispatch(args)
 	Script.ClearQueue()
@@ -30,6 +31,11 @@ local function dispatch(args)
 	-- this COULD be moved into the conditional and run directly in an else-block instead of queueing every time, but WoLua runs the queue
 	-- on game framework update events, so it'll happen basically instantly if the above conditional doesn't pass, so there's no real change
 	Script.QueueAction(Game.SendChat, command)
+	if type(postChange) == "function" then
+		print("Queueing post-gearset custom action")
+		Script.QueueDelay(100)
+		Script.QueueAction(postChange)
+	end
 end
 
 Script(dispatch)
