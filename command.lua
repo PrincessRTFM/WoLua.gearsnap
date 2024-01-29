@@ -1,5 +1,5 @@
 --Script.Debug.Enabled = true
-local postChange = loadfile 'after.lua'
+local postChange = loadfile "after.lua"
 
 local function dispatch(args)
 	Script.ClearQueue()
